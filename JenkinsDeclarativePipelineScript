@@ -37,23 +37,4 @@ pipeline{
 }
     
 } 
-    }
-    }
-  post{
-    always {
-     mail bcc: 'ike.lovelyn@gmail.com', body: '''Build complete 
-
-Landmark Technologies''', cc: 'ike.lovelyn@gmail.com', from: '', replyTo: '', subject: 'Build done', to: 'ike.lovelyn@yahoo.com'
-    } 
-    failure {
-    mail bcc: 'ike.lovelyn@gmail.com', body: '''Build complete 
-
-Landmark Technologies''', cc: 'ike.lovelyn@gmail.com', from: '', replyTo: '', subject: 'Build failed', to: 'ike.lovelyn@yahoo.com'
-    }
-    success {
-    mail bcc: 'ike.lovelyn@gmail.com', body: '''Build complete 
-
-Landmark Technologies''', cc: 'ike.lovelyn@gmail.com', from: '', replyTo: '', subject: 'Build succeed', to: 'ike.lovelyn@yahoo.com'
-    }
-  }  
-  }
+   

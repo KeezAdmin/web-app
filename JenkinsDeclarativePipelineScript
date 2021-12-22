@@ -2,7 +2,7 @@
 pipeline{
   agent any  
   tools {
-    maven "Maven3.8.4"
+    maven "maven3.8.4"
   }
   triggers {
   pollSCM '* * * * * '
@@ -10,7 +10,7 @@ pipeline{
   stages {
     stage('1.CodeClone'){
       steps{
-          git credentialsId: 'Git-hub-Cred', url: 'https://github.com/KeezAdmin/web-app'
+         git credentialsId: 'Git-hub-Cred', url: 'https://github.com/KeezAdmin/web-app'
       }
     } 
     stage('2.mavenBuild'){
@@ -34,13 +34,13 @@ pipeline{
     steps{
     sshagent(['c556c4b1-8fc3-4c2c-b740-ab137ae35945']) {
     sh "scp -o StrictHostKeyChecking=no target/*war ec2-user@172.31.83.10:/opt/tomcat9/webapps/app"
-    }
+}
     
 } 
+
     }
     }
-    */
-  post{
+  /*post{
     always {
      mail bcc: 'td-app@gmail.com', body: '''Build complete 
 
@@ -54,8 +54,7 @@ Landmark Technologies''', cc: 'td-app@gmail.com', from: '', replyTo: '', subject
     success {
     mail bcc: 'td-app@gmail.com', body: '''Build complete 
 
-Landmark Technologies''', cc: 'td-app@gmail.com', from: '', replyTo: '', subject: 'Build succeed', to: 'td-app@gmail.com'
-/*
+Landmark Technologies''', cc: 'td-app@gmail.com', from: '', replyTo: '', subject: 'Build succeed', to: 'td-app@gmail.com'*/
     }
   }  
   }

@@ -37,4 +37,17 @@ pipeline{
 }
     
 } 
-   
+      }
+    stage('7.Approval'){
+    timeout(time:5, unit:'DAYS'){
+ 			input message: 'Approval for production'
+    
+    }
+    stage('8.deployToProd'){
+    sshagent(['32d5fb4f-d92f-4a10-9f12-2738eab55fcc']) {
+    sh "scp -o StrictHostKeyChecking=no target/*war ec2-user@172.31.83.10:/opt/tomcat9/webapps/app"
+}
+    
+    }
+}
+ 

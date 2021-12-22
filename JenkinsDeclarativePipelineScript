@@ -40,7 +40,7 @@ pipeline{
 
     }
     }
-  /*post{
+  post{
     always {
      mail bcc: 'td-app@gmail.com', body: '''Build complete 
 
@@ -56,6 +56,5 @@ Landmark Technologies''', cc: 'td-app@gmail.com', from: '', replyTo: '', subject
 
 Landmark Technologies''', cc: 'td-app@gmail.com', from: '', replyTo: '', subject: 'Build succeed', to: 'td-app@gmail.com'
     }
-    */
   }  
   }
